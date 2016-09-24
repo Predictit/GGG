@@ -1,0 +1,39 @@
+package com.javarush.test.level04.lesson10.test10.guesgame;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Random;
+
+/**
+ * Created by Stanislav on 24-Sep-16.
+ */
+public class GG {
+    public static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private static Random random = new Random();
+
+    public static void main(String[] args) throws IOException
+    {
+        new GG().run();
+    }
+    public void run() throws IOException
+    {
+        int secretNumber = random.nextInt(10) + 1;
+        boolean win = false;
+
+        while (!win)
+        {
+            System.out.println("Guess the number between 1 and 10 ");
+            int input = Integer.parseInt(reader.readLine());
+
+            if (input == secretNumber)
+            {
+                win = true;
+                System.out.println("Good job");
+            } else if (input != secretNumber)
+            {
+                System.out.println("Try again");
+            }
+        }
+    }
+}
